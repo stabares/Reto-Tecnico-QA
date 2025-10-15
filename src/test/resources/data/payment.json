@@ -1,0 +1,40 @@
+{
+  "data": {
+    "id": "15113-1760550981-77373",
+    "created_at": "2025-10-15T17:56:21.250Z",
+    "finalized_at": null,
+    "amount_in_cents": 2500000,
+    "reference": "REF-WOMPI-1760550979843",
+    "customer_email": "prueba.testing@yopmail.com",
+    "currency": "COP",
+    "payment_method_type": "PSE",
+    "payment_method": {
+      "type": "PSE",
+      "extra": {
+        "is_three_ds": false,
+        "three_ds_auth_type": null
+      },
+      "user_type": 0,
+      "user_legal_id": "123456789",
+      "user_legal_id_type": "CC",
+      "payment_description": "Probando pago a Tienda Wompi",
+      "financial_institution_code": "1"
+    },
+    "status": "PENDING",
+    "status_message": null,
+    "billing_data": null,
+    "shipping_address": null,
+    "redirect_url": null,
+    "payment_source_id": null,
+    "payment_link_id": null,
+    "customer_data": null,
+    "bill_id": null,
+    "taxes": [
+
+    ],
+    "tip_in_cents": null
+  },
+  "meta": {
+
+  }
+}

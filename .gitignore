@@ -1,0 +1,5 @@
+/build
+/history
+/target
+.gradle
+.idea
