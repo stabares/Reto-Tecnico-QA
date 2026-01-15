@@ -7,8 +7,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "src/test/resources/features/create_payment.feature",
+        //tags = "@CrearTransacciónExitosaNequi",
         glue = "co.com.wompi.stepdefinitions",
         snippets = CucumberOptions.SnippetType.CAMELCASE,
         plugin = {"pretty"})
+
 public class WompiPaymentRunner {
 }

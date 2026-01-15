@@ -3,10 +3,7 @@ package co.com.wompi.stepdefinitions;
 import co.com.wompi.questions.ErrorMessageContains;
 import co.com.wompi.questions.ResponseCode;
 import co.com.wompi.questions.TransactionStatusIs;
-import co.com.wompi.tasks.CreatePaymentWithDuplicateReference;
-import co.com.wompi.tasks.CreatePaymentWithInvalidAmount;
-import co.com.wompi.tasks.CreatePaymentWithInvalidKey;
-import co.com.wompi.tasks.CreateSuccessfulPayment;
+import co.com.wompi.tasks.*;
 import io.cucumber.java.Before;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
@@ -34,10 +31,16 @@ public class CreatePaymentStepDefinitions {
         user.can(CallAnApi.at(BASE_URL));
     }
 
-    // Transacción exitosa
+    // Transacción exitosa PSE
     @Cuando("el usuario realiza una transacción de pago vía PSE con datos correctos")
-    public void realizarTransaccionExitosa() {
+    public void realizarTransaccionExitosaPse() {
         user.attemptsTo(CreateSuccessfulPayment.transaction());
+    }
+
+    // Transacción exitosa NEQUI
+    @Cuando("el usuario realiza una transacción de pago vía NEQUI con datos correctos")
+    public void realizarTransaccionExitosaNequi() {
+        user.attemptsTo(CreateSuccessfullPaymentNequi.transaction());
     }
 
     // Llave inválida

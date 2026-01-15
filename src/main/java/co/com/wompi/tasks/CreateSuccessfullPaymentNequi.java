@@ -11,28 +11,25 @@ import net.serenitybdd.screenplay.Tasks;
 
 import static co.com.wompi.utils.Constants.PRIVATE_KEY;
 
-public class CreatePaymentWithInvalidAmount implements Task {
+public class CreateSuccessfullPaymentNequi implements Task {
     @Override
-    @Step("Intenta una transaccion con un monto invalido (Menor al permitido)")
+    @Step("Crea una transaccion exitosa con Nequi")
     public <T extends Actor> void performAs(T actor) {
         String token = SignatureUtils.getAcceptanceToken();
 
         PaymentRequest payment = new PaymentRequest();
-        payment.amount_in_cents = 500;
+        payment.amount_in_cents = 2500000;
         payment.currency = "COP";
-        payment.customer_email = "PruebasQA@test.com";
+        payment.customer_email = "prueba.testing@yopmail.com";
         payment.reference = "REF-WOMPI-" + System.currentTimeMillis();
         payment.acceptance_token = token;
         payment.signature = SignatureUtils.generateSignature(payment.reference, payment.amount_in_cents, payment.currency);
 
-        PaymentRequest.PaymentMethodPse pse = new PaymentRequest.PaymentMethodPse();
-        pse.user_type = 0;
-        pse.user_legal_id = "123456789";
-        pse.user_legal_id_type = "CC";
-        pse.financial_institution_code = "1";
-        pse.payment_description = "Probando pago a Tienda Wompi";
+        PaymentRequest.PaymentMethodNequi nequi = new PaymentRequest.PaymentMethodNequi();
+        nequi.phone_number = "3991111111";
+        nequi.payment_description = "Probando pago a Tienda Wompi con Nequi";
 
-        payment.payment_method = pse;
+        payment.payment_method = nequi;
 
         SerenityRest
                 .given()
@@ -45,7 +42,8 @@ public class CreatePaymentWithInvalidAmount implements Task {
                 .log().all();
     }
 
-    public static CreatePaymentWithInvalidAmount transaction() {
-        return Tasks.instrumented(CreatePaymentWithInvalidAmount.class);
+    public static CreateSuccessfullPaymentNequi transaction() {
+        return Tasks.instrumented(CreateSuccessfullPaymentNequi.class);
     }
+
 }

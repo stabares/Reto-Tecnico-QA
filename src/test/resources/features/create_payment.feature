@@ -1,9 +1,9 @@
 # language: es
 
-@CrearTransacciónPSE
-Característica: Crear una transacción de pago PSE en Wompi
+@CrearTransacción
+Característica: Crear una transacción de pago en Wompi
 
-  Como comercio que realiza pagos vía PSE
+  Como comercio que realiza pagos
   Quiero que el sistema gestione correctamente las transacciones
   Para poder procesarlas de manera segura y confiable
 
@@ -11,11 +11,16 @@ Característica: Crear una transacción de pago PSE en Wompi
     Dado que el comercio tiene configuradas las llaves de autenticación
 
 
-  @CrearTransacciónExitosa
+  @CrearTransacciónExitosaPSE
   Escenario: Transacción exitosa con PSE
     Cuando el usuario realiza una transacción de pago vía PSE con datos correctos
     Entonces la respuesta debe tener el código 201
     Y la transacción debe tener un estado "PENDING" o "APPROVED"
+
+  @CrearTransacciónExitosaNEQUI
+  Escenario: Transacción exitosa con NEQUI
+    Cuando el usuario realiza una transacción de pago vía NEQUI con datos correctos
+    Entonces la respuesta debe tener el código 201
 
   @TransacciónConLlaveInvalida
   Escenario: Transacción con llave privada inválida

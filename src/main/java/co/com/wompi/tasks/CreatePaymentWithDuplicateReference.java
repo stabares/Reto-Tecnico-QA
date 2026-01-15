@@ -25,15 +25,14 @@ public class CreatePaymentWithDuplicateReference implements Task {
         payment.acceptance_token = token;
         payment.signature = SignatureUtils.generateSignature(payment.reference, payment.amount_in_cents, payment.currency);
 
-        PaymentRequest.PaymentMethod method = new PaymentRequest.PaymentMethod();
-        method.type = "PSE";
-        method.user_type = 0;
-        method.user_legal_id = "123456789";
-        method.user_legal_id_type = "CC";
-        method.financial_institution_code = "1";
-        method.payment_description = "Probando pago a Tienda Wompi";
+        PaymentRequest.PaymentMethodPse pse = new PaymentRequest.PaymentMethodPse();
+        pse.user_type = 0;
+        pse.user_legal_id = "123456789";
+        pse.user_legal_id_type = "CC";
+        pse.financial_institution_code = "1";
+        pse.payment_description = "Probando pago a Tienda Wompi";
 
-        payment.payment_method = method;
+        payment.payment_method = pse;
 
         SerenityRest
                 .given()
